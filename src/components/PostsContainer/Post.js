@@ -3,13 +3,17 @@ import React, { useState } from "react";
 import CommentSection from "../CommentSection/CommentSectionContainer";
 import LikeSection from "./LikeSection";
 import PostHeader from "./PostHeader";
-import dummyData from "../../dummy-data.js";
 import "./Posts.css";
 
 // pass props in this file to
 const Post = props => {
   // set up state for the likes
-  const [likes, updateLikes] = useState(props.post.likes);
+  const [numberOfLikes, setNumberOfLikes] = useState(0);
+  console.log(numberOfLikes);
+
+  function likePlusOne() {
+    setNumberOfLikes(numberOfLikes + 1);
+  }
   return (
     <div className="post-border">
       <PostHeader
@@ -23,7 +27,7 @@ const Post = props => {
           src={props.post.imageUrl}
         />
       </div>
-      <LikeSection likes={likes} updateLikes={updateLikes} />
+      <LikeSection numberOfLikes={numberOfLikes} likeFunc={likePlusOne} />
       <CommentSection
         postId={props.post.imageUrl}
         comments={props.post.comments}
