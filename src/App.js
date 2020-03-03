@@ -10,6 +10,7 @@ import "./App.css";
 import PostsPage from "./components/PostsContainer/PostsPage";
 import SearchBar from "./components/SearchBar/SearchBarContainer";
 import dummyData from "./dummy-data";
+
 const App = () => {
   return (
     <div className="App">
